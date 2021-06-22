@@ -47,7 +47,6 @@ public class WebDriverWrapper {
     public void close() {
         log.debug(String.format("Закрываю вкладку: %s", driver.getCurrentUrl()));
         driver.close();
-        driver.getWindowHandles().size()
         log.debug("Вкладка закрыта");
     }
     public void quit() {
