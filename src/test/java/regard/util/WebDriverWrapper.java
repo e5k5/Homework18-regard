@@ -100,20 +100,6 @@ public class WebDriverWrapper {
         log.debug(String.format("Найден вложенный элемент по локатору: %s", locator));
         return webElement;
     }
-//    public List<WebElement> findNestedElements(WebElement rootElement, By locator) throws NoSuchElementException {
-//        log.debug(String.format("Ищу вложенные элементы по локатору: %s", locator));
-//        List<WebElement> webElementsList;
-//        try {
-//            webElementsList = wait.until( ExpectedConditions.presenceOfNestedElementsLocatedBy((By) rootElement, locator) );
-//            webElementsList.stream() // подсветка найденных элементов
-//                    .forEach(el -> ((JavascriptExecutor) driver).executeScript("arguments[0]['style']['box-shadow']='0 0 10px 1px aqua';", el));
-//        } catch (TimeoutException e){
-//            log.error(String.format("Не найдены элементы внутри %s по локатору: %s", rootElement, locator));
-//            throw new NoSuchElementException(String.format("Не найдены элементы по локатору: %s", locator));
-//        }
-//        log.debug(String.format("Найдены вложенные элементы по локатору: %s", locator));
-//        return webElementsList;
-//    }
 
     public void click(WebElement webElement) {
         log.debug(String.format("Клик на элемент: %s", webElement));
@@ -122,8 +108,6 @@ public class WebDriverWrapper {
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", webElement);
         webElement.click();
         log.debug(String.format("Кликнут элемент: %s", webElement));
-
     }
-
 
 }

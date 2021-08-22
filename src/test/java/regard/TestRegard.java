@@ -27,7 +27,7 @@ public class TestRegard {
     }
 
     @Test
-    @DisplayName("Добавляем несколько товаров в корзину и проверяем, что они добавились")
+    @DisplayName("Добавляем указанные товары в корзину и проверяем, что они добавились")
     void testAddToCart(){
         try {
             mainPage

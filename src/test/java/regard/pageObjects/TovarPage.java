@@ -2,6 +2,7 @@ package regard.pageObjects;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -9,7 +10,7 @@ public class TovarPage extends AbstractPageWithLMenu{
     public Logger log = LogManager.getLogger(TovarPage.class.getName());
 
     public TovarPage addToCart() {
-        WebElement addToCartButton = driver.findElement(By.xpath("//*[@id='add_cart']"));
+        WebElement addToCartButton = driver.findElement(By.xpath("//*[@id='cart_btn']"));
         driver.click(addToCartButton);
 
         String idPath = "//div[@class='goods_id']";
@@ -19,11 +20,17 @@ public class TovarPage extends AbstractPageWithLMenu{
     }
 
     public void openCartFromAddedTovarPage() {
-        WebElement addToCartButton = driver.findElement(By.xpath("//*[@id='add_cart']"));
-        if ( !addToCartButton.getText().equalsIgnoreCase("Перейти в корзину") ) {
-            log.debug("Этот товар еще не добавлен в корзину - " + addToCartButton.getText());
-            return;
-        }
+        log.debug("Проверяем состояние кнопки 'Перейти в корзину' по атрибуту 'class'");
+        WebElement addToCartButton = driver.findElement(By.xpath("//*[@id='cart_btn' and contains(@class,'btn_blue')]"));
+        log.debug("Этот товар уже был добавлен в корзину - проверили состояние кнопки 'Перейти в корзину' по атрибуту 'class' - " + addToCartButton.getAttribute("class"));
+
+//
+//        if ( ! addToCartButton.getAttribute("class").contains("btn_blue") ) {
+//            log.debug("Этот товар еще не добавлен в корзину - проверили состояние кнопки 'Перейти в корзину' по атрибуту 'class' - " + addToCartButton.getAttribute("class"));
+//            Assertions.fail("Этот товар еще не добавлен в корзину");
+//            return;
+//        }
+//        log.debug("Этот товар уже был добавлен в корзину - " + addToCartButton.getAttribute("class"));
         driver.click(addToCartButton);
     }
 }
