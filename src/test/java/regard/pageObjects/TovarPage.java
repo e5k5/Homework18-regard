@@ -23,14 +23,6 @@ public class TovarPage extends AbstractPageWithLMenu{
         log.debug("Проверяем состояние кнопки 'Перейти в корзину' по атрибуту 'class'");
         WebElement addToCartButton = driver.findElement(By.xpath("//*[@id='cart_btn' and contains(@class,'btn_blue')]"));
         log.debug("Этот товар уже был добавлен в корзину - проверили состояние кнопки 'Перейти в корзину' по атрибуту 'class' - " + addToCartButton.getAttribute("class"));
-
-//
-//        if ( ! addToCartButton.getAttribute("class").contains("btn_blue") ) {
-//            log.debug("Этот товар еще не добавлен в корзину - проверили состояние кнопки 'Перейти в корзину' по атрибуту 'class' - " + addToCartButton.getAttribute("class"));
-//            Assertions.fail("Этот товар еще не добавлен в корзину");
-//            return;
-//        }
-//        log.debug("Этот товар уже был добавлен в корзину - " + addToCartButton.getAttribute("class"));
         driver.click(addToCartButton);
     }
 }

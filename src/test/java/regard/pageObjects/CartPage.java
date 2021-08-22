@@ -28,7 +28,6 @@ public class CartPage extends AbstractPageWithLMenu {
     }
 
     public void checkGoodsInCart() throws NoSuchElementException {
-//        var tcart = Map.of("355862", 1, "382111", 1);
 
         if (isCartEmpty()) {
             Assertions.assertTrue(cart.size() == 0, "Корзина не должна быть пустой");
