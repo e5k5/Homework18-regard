@@ -1,7 +1,7 @@
 *.iml
 .idea/
-${project.basedir}
-${project.build.directory}
+${project.basedir}/
+${project.build.directory}/
 *.class
 *.log
 target/
